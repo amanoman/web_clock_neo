@@ -7,9 +7,9 @@ type ClockDisplayProps = {
 
 export function ClockDisplay({ time, date, timeDateTime, dateDateTime }: ClockDisplayProps) {
   return (
-    <div>
-      <time dateTime={timeDateTime}>{time}</time>
+    <div className="flex flex-col items-center gap-2">
       <time dateTime={dateDateTime}>{date}</time>
+      <time dateTime={timeDateTime}>{time}</time>
     </div>
   )
 }
