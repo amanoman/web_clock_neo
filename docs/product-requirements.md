@@ -138,17 +138,17 @@
 ### UI
 - フォント：モノスペースフォントを使用して桁ズレを防止（フォントスタックは `functional-design.md` 参照）
 - カラー：時刻テキストと背景のコントラスト比 **4.5:1以上**（WCAG AA準拠）
-- アクセシビリティ：時刻要素に `aria-label="現在時刻"` 、日付要素に `aria-label="今日の日付"` を付与し、スクリーンリーダーで意味の通る読み上げ順とする
+- アクセシビリティ：`<time>` 要素を使用し、本文テキストをそのままスクリーンリーダーに読ませる（`aria-label` は付与しない。詳細は `functional-design.md` 参照）。読み上げ順は時刻→日付とする
 
 ---
 
 ## 9. 非機能要件
 
-| 項目 | 要件 | 測定条件 |
-|------|------|----------|
-| パフォーマンス | 時刻文字列の初回表示 1秒以内 | Vercel Preview環境、モバイル設定、Lighthouseデフォルト（Fast 3G相当） |
-| Lighthouse | Performance・Accessibility 各90以上 | 本番ビルドのトップページをモバイル設定で計測 |
-| アクセシビリティ | WCAG 2.1 AA準拠 | axe・Lighthouse Accessibility で計測 |
-| ブラウザ対応 | Chrome・Firefox・Safari・Edge 各最新2バージョン | — |
-| レスポンシブ | 320px〜1920px | 代表5ビューポートで目視確認 |
-| テスト | ユニットテストカバレッジ 80%以上 | Vitest / Jest の statement・branch・function・line すべてで80%以上 |
+| 項目 | 区分 | 要件 | 測定条件 |
+|------|------|------|----------|
+| パフォーマンス | リリースブロッカー | 時刻文字列の初回表示 1秒以内 | Vercel Preview環境、モバイル設定、Lighthouseデフォルト（Fast 3G相当） |
+| Lighthouse | ストレッチゴール（未達でもリリース可） | Performance・Accessibility 各90以上 | 本番ビルドのトップページをモバイル設定で計測 |
+| アクセシビリティ | リリースブロッカー | WCAG 2.1 AA準拠 | axe・Lighthouse Accessibility で計測 |
+| ブラウザ対応 | リリースブロッカー | Chrome・Firefox・Safari・Edge 各最新2バージョン | — |
+| レスポンシブ | リリースブロッカー | 320px〜1920px | 代表5ビューポートで目視確認 |
+| テスト | リリースブロッカー | ユニットテストカバレッジ 80%以上 | Vitest の statement・branch・function・line すべてで80%以上 |
