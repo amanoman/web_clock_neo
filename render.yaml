@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: web-clock-neo
+    env: node
+    region: singapore
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_VERSION
+        value: 20.11.0
+      - key: PORT
+        value: 3000
